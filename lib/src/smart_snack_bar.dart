@@ -20,7 +20,7 @@ class SmartSnackBar {
       case SmartProgressState.success:
         defaultColor = Colors.green;
         break;
-      case SmartProgressState.failure:
+      case SmartProgressState.error:
         defaultColor = Colors.red;
         break;
       case SmartProgressState.warning:

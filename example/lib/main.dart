@@ -53,6 +53,13 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
     _controller.showSuccess(message: "Successful"); // Show success state
   }
 
+  void _simulateInfo() async {
+    _controller.attach(context); // Attach the controller to the context
+    _controller.showLoading("Loading..."); // Show loading state
+    await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
+    _controller.showInfo(message: "This is an info!"); // Show success state
+  }
+
   void _simulateWarning() async {
     _controller.attach(context); // Attach the controller to the context
     _controller.showLoading("Processing..."); // Show loading state
@@ -101,6 +108,10 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
                 ElevatedButton(
                   onPressed: _simulateSuccess,
                   child: const Text("Show Success"),
+                ),
+                ElevatedButton(
+                  onPressed: _simulateInfo,
+                  child: const Text("Show Info"),
                 ),
                 ElevatedButton(
                   onPressed: _simulateWarning,
