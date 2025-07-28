@@ -92,11 +92,18 @@ lib/
 
 ## 📸 Screenshots
 
+- Here are some screenshots of the dialogs in action:
+- Loading Dialog
 ![Loading Dialog](screenshots/loading.png)
+- Success Dialog
 ![Success Dialog](screenshots/success.png)
+- Warning Dialog
 ![Warning Dialog](screenshots/warning.png)
+- Error Dialog
 ![Error Dialog](screenshots/error.png)
+- Pull to Refresh and Load More Dialogs
 ![Pull to Refresh Dialog](screenshots/refresh.png)
+- Load More Dialog
 ![Load More Dialog](screenshots/load_more.png)
 
 ---
