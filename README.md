@@ -23,7 +23,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  smart_progress_dialog: ^1.0.0
+  smart_progress_dialog: ^0.0.2
 ```
 
 Import it:
@@ -106,49 +106,16 @@ lib/
 
 ## 📸 Screenshots
 
-- Here are some screenshots of the dialogs in action:
-
-### Loading Dialog
-
-- This dialog is shown when a process is loading.
-
-![Loading Dialog](screenshots/loading.png)
-
-### Success Dialog
-
-- This dialog is shown when a process completes successfully.
-
-![Success Dialog](screenshots/success.png)
-
-### Warning Dialog
-
-- This dialog is shown to alert the user about a warning or caution.
-
-![Warning Dialog](screenshots/warning.png)
-
-### Error Dialog
-
-- This dialog is shown when an error occurs during a process.
-
-![Error Dialog](screenshots/error.png)
-
-### Pull to Refresh and Load More Dialogs
-
-- These dialogs are used in conjunction with lists to refresh or load more data.
-
-![Pull to Refresh Dialog](screenshots/refresh.png)
-
-### Load More Dialog
-
-- This dialog is shown when more data is being loaded in a list.
-
-![Load More Dialog](screenshots/load_more.png)
-
-### Snackbar
-
-- This dialog is shown when more data is being loaded in a list.
-
-![Snackbar](screenshots/snackbar.png)
+| Type      | Preview                        |
+| --------- | ------------------------------ |
+| Loading   | ![](screenshots/loading.png)   |
+| Success   | ![](screenshots/success.png)   |
+| Warning   | ![](screenshots/warning.png)   |
+| Error     | ![](screenshots/error.png)     |
+| Snackbar  | ![](screenshots/snackbar.png)  |
+| Alert     | ![](screenshots/alert.png)     |
+| Refresh   | ![](screenshots/refresh.png)   |
+| Load More | ![](screenshots/load_more.png) |
 
 ---
 
