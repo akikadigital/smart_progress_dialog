@@ -46,30 +46,30 @@ class SmartProgressController {
   }
 
   /// Show a success animation and dismiss automatically.
-  void showSuccess([String? message, Color? color]) {
+  void showSuccess({String? message, Color? color, bool? delay}) {
     show(
         state: SmartProgressState.success,
         message: message,
         color: color ?? Colors.green);
-    _autoDismiss();
+    _autoDismiss(delay);
   }
 
   /// Show a failure animation and dismiss automatically.
-  void showFailure([String? message, Color? color]) {
+  void showFailure({String? message, Color? color, bool? delay}) {
     show(
         state: SmartProgressState.failure,
         message: message,
         color: color ?? Colors.red);
-    _autoDismiss();
+    _autoDismiss(delay);
   }
 
   /// Show a warning animation and dismiss automatically.
-  void showWarning([String? message, Color? color]) {
+  void showWarning({String? message, Color? color, bool? delay}) {
     show(
         state: SmartProgressState.warning,
         message: message,
         color: color ?? Colors.orange);
-    _autoDismiss();
+    _autoDismiss(delay);
   }
 
   /// Manually dismiss the dialog.
@@ -80,8 +80,11 @@ class SmartProgressController {
   }
 
   /// Automatically dismiss the dialog after a short delay.
-  void _autoDismiss() {
-    Future.delayed(const Duration(seconds: 3), () {
+  void _autoDismiss(bool? delay) {
+    if ((delay ?? true) == false) {
+      dismiss();
+    }
+    Future.delayed(const Duration(seconds: (3)), () {
       dismiss();
     });
   }

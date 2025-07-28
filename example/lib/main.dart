@@ -50,21 +50,24 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
     _controller.attach(context); // Attach the controller to the context
     _controller.showLoading("Loading..."); // Show loading state
     await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
-    _controller.showSuccess("Completed successfully!"); // Show success state
+    _controller.showSuccess(
+        message: "Completed successfully!", delay: false); // Show success state
   }
 
   void _simulateWarning() async {
     _controller.attach(context); // Attach the controller to the context
     _controller.showLoading("Processing..."); // Show loading state
     await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
-    _controller.showWarning("This is a warning!"); // Show warning state
+    _controller.showWarning(
+        message: "This is a warning!"); // Show warning state
   }
 
   void _simulateFailure() async {
     _controller.attach(context); // Attach the controller to the context
     _controller.showLoading("Processing..."); // Show loading state
     await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
-    _controller.showFailure("Something went wrong."); // Show failure state
+    _controller.showFailure(
+        message: "Something went wrong."); // Show failure state
   }
 
   @override
