@@ -7,7 +7,7 @@ enum SmartProgressState {
   success,
 
   /// Failure animation (X)
-  failure,
+  error,
 
   /// Warning animation (!)
   warning,

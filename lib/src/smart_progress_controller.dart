@@ -66,7 +66,7 @@ class SmartProgressController {
   /// Show a failure animation and dismiss automatically.
   void showFailure({required String message, Color? color}) {
     show(
-        state: SmartProgressState.failure,
+        state: SmartProgressState.error,
         message: message,
         color: color ?? Colors.red);
     _autoDismiss();

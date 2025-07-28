@@ -18,5 +18,5 @@ flutter:
 
   assets:
     - assets/success_tick.json
-    - assets/failure_x.json
+    - assets/error_x.json
     - assets/warning_alert.json

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:smart_progress_dialog/util/dialog_assets.dart';
 
 import 'dialog_state.dart';
 
@@ -67,16 +68,16 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
         break;
       case SmartProgressState.success:
         content = Lottie.asset(
-          'assets/success_tick.json',
+          DialogAssets.success,
           width: widget.size,
           height: widget.size,
           animate: widget.animateAsset ?? true,
           repeat: widget.loopAnimation ?? true,
         );
         break;
-      case SmartProgressState.failure:
+      case SmartProgressState.error:
         content = Lottie.asset(
-          'assets/failure_x.json',
+          DialogAssets.error,
           width: widget.size,
           height: widget.size,
           animate: widget.animateAsset ?? true,
@@ -85,7 +86,7 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
         break;
       case SmartProgressState.warning:
         content = Lottie.asset(
-          'assets/warning_alert.json',
+          DialogAssets.warning,
           width: widget.size,
           height: widget.size,
           animate: widget.animateAsset ?? true,
