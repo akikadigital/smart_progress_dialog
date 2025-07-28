@@ -93,17 +93,29 @@ lib/
 ## 📸 Screenshots
 
 - Here are some screenshots of the dialogs in action:
-- Loading Dialog
+
+### Loading Dialog
+- This dialog is shown when a process is loading.
 ![Loading Dialog](screenshots/loading.png)
-- Success Dialog
+
+### Success Dialog
+- This dialog is shown when a process completes successfully.
 ![Success Dialog](screenshots/success.png)
-- Warning Dialog
+
+### Warning Dialog
+- This dialog is shown to alert the user about a warning or caution.
 ![Warning Dialog](screenshots/warning.png)
-- Error Dialog
+
+### Error Dialog
+- This dialog is shown when an error occurs during a process.
 ![Error Dialog](screenshots/error.png)
-- Pull to Refresh and Load More Dialogs
+
+### Pull to Refresh and Load More Dialogs
+- These dialogs are used in conjunction with lists to refresh or load more data.
 ![Pull to Refresh Dialog](screenshots/refresh.png)
-- Load More Dialog
+
+### Load More Dialog
+- This dialog is shown when more data is being loaded in a list.
 ![Load More Dialog](screenshots/load_more.png)
 
 ---
