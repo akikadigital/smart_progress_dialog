@@ -5,10 +5,7 @@ description: >
   failure, and warning states with optional controller support, pull-to-refresh,
   and infinite scroll integration.
 
-version: 1.0.0
-
-authors:
-  - Akika Digital <akika.digital@gmail.com>
+version: 0.0.1
 
 homepage: https://github.com/akikadigital/smart_progress_dialog
 repository: https://github.com/akikadigital/smart_progress_dialog
