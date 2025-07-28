@@ -44,20 +44,29 @@ class SmartProgressController {
   }
 
   /// Show a success animation and dismiss automatically.
-  void showSuccess([String? message]) {
-    show(state: SmartProgressState.success, message: message);
+  void showSuccess([String? message, Color? color]) {
+    show(
+        state: SmartProgressState.success,
+        message: message,
+        color: color ?? Colors.green);
     _autoDismiss();
   }
 
   /// Show a failure animation and dismiss automatically.
-  void showFailure([String? message]) {
-    show(state: SmartProgressState.failure, message: message);
+  void showFailure([String? message, Color? color]) {
+    show(
+        state: SmartProgressState.failure,
+        message: message,
+        color: color ?? Colors.red);
     _autoDismiss();
   }
 
   /// Show a warning animation and dismiss automatically.
-  void showWarning([String? message]) {
-    show(state: SmartProgressState.warning, message: message);
+  void showWarning([String? message, Color? color]) {
+    show(
+        state: SmartProgressState.warning,
+        message: message,
+        color: color ?? Colors.orange);
     _autoDismiss();
   }
 
