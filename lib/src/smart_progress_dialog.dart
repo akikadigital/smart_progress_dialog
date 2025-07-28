@@ -93,6 +93,15 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
           repeat: widget.loopAnimation ?? true,
         );
         break;
+      case SmartProgressState.info:
+        content = Lottie.asset(
+          DialogAssets.info,
+          width: widget.size,
+          height: widget.size,
+          animate: widget.animateAsset ?? true,
+          repeat: widget.loopAnimation ?? true,
+        );
+        break;
     }
 
     return Dialog(
