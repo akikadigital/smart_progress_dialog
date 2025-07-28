@@ -17,14 +17,16 @@ class SmartProgressController {
 
   /// Show a custom dialog with the given parameters.
   void show({
-    SmartProgressState state = SmartProgressState.loading,
-    String? message,
-    double size = 80,
-    Color color = Colors.teal,
-    Color backgroundColor = Colors.white,
+    SmartProgressState state =
+        SmartProgressState.loading, // Default state is loading
+    String? message, // Message to display in the dialog
+    double size = 80, // Default size of the dialog
+    Color color = Colors.teal, // Default color for the dialog
+    Color backgroundColor = Colors.white, // Default background color
   }) {
     if (_context == null) return;
 
+    /// Show the dialog using the provided context and parameters.
     showDialog(
       context: _context!,
       barrierDismissible: false,

@@ -47,24 +47,24 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
   }
 
   void _simulateSuccess() async {
-    _controller.attach(context);
-    _controller.showLoading("Loading...");
-    await Future.delayed(const Duration(seconds: 2));
-    _controller.showSuccess("Completed successfully!");
+    _controller.attach(context); // Attach the controller to the context
+    _controller.showLoading("Loading..."); // Show loading state
+    await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
+    _controller.showSuccess("Completed successfully!"); // Show success state
   }
 
   void _simulateWarning() async {
-    _controller.attach(context);
-    _controller.showLoading("Processing...");
-    await Future.delayed(const Duration(seconds: 2));
-    _controller.showWarning("This is a warning!");
+    _controller.attach(context); // Attach the controller to the context
+    _controller.showLoading("Processing..."); // Show loading state
+    await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
+    _controller.showWarning("This is a warning!"); // Show warning state
   }
 
   void _simulateFailure() async {
-    _controller.attach(context);
-    _controller.showLoading("Processing...");
-    await Future.delayed(const Duration(seconds: 2));
-    _controller.showFailure("Something went wrong.");
+    _controller.attach(context); // Attach the controller to the context
+    _controller.showLoading("Processing..."); // Show loading state
+    await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
+    _controller.showFailure("Something went wrong."); // Show failure state
   }
 
   @override
@@ -76,6 +76,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              /// Buttons to trigger different states
               ElevatedButton(
                 onPressed: _simulateSuccess,
                 child: const Text("Show Success"),
