@@ -1,6 +1,6 @@
 # Smart Progress Dialog
 
-Smart Progress Dialog is a lightweight and customizable Flutter package that provides animated progress dialogs for loading, success, failure, and warning states. It also includes a controller, list loader for infinite scroll, and pull-to-refresh support.
+Smart Progress Dialog is a lightweight and customizable Flutter package that provides animated progress dialogs for loading, success, failure, and warning states. It also includes a controller, list loader for infinite scroll, pull-to-refresh support, and snackbars for lightweight feedback.
 
 ![Smart Progress Dialog Logo](assets/logo.png)
 
@@ -12,7 +12,8 @@ Smart Progress Dialog is a lightweight and customizable Flutter package that pro
 - 🎮 SmartProgressController for managing dialog states
 - 🔁 SmartRefreshIndicator for pull-to-refresh support
 - 📦 SmartListLoader for infinite scroll lists
-- 🎨 Customizable size, color, and message support
+- 🍞 SmartSnackBar for quick toast-like user feedback
+- 🎨 Customizable size, color, position, and message support
 
 ---
 
@@ -73,6 +74,18 @@ SmartRefreshIndicator(
 )
 ```
 
+### 5. Show Snackbar
+
+```dart
+SmartSnackBar.show(
+  context,
+  "Item saved!",
+  state: SmartProgressState.success,
+  position: SnackBarPosition.top, // or SnackBarPosition.bottom
+  backgroundColor: Colors.indigo,
+);
+```
+
 ---
 
 ## 📂 File Structure
@@ -85,6 +98,7 @@ lib/
     ├── smart_progress_controller.dart # Dialog controller
     ├── smart_list_loader.dart         # Scroll loader
     ├── smart_refresh_indicator.dart   # Refresh wrapper
+    ├── smart_snack_bar.dart           # Snackbar utility
     └── dialog_state.dart              # Enum definition
 ```
 

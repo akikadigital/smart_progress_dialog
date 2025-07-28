@@ -69,29 +69,53 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
         message: "Something went wrong."); // Show failure state
   }
 
+  void _showSnackBar() {
+    SmartSnackBar.show(
+      context,
+      "This is a snackbar message",
+      state: SmartProgressState.warning,
+      duration: const Duration(seconds: 3),
+      backgroundColor: Colors.red,
+    );
+    SmartSnackBar.show(
+      context,
+      "This is a snackbar message",
+      state: SmartProgressState.warning,
+      duration: const Duration(seconds: 3),
+      backgroundColor: Colors.green,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Smart Dialog Example')),
       body: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              /// Buttons to trigger different states
-              ElevatedButton(
-                onPressed: _simulateSuccess,
-                child: const Text("Show Success"),
-              ),
-              ElevatedButton(
-                onPressed: _simulateWarning,
-                child: const Text("Show Warning"),
-              ),
-              ElevatedButton(
-                onPressed: _simulateFailure,
-                child: const Text("Show Failure"),
-              ),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                /// Buttons to trigger different states
+                ElevatedButton(
+                  onPressed: _simulateSuccess,
+                  child: const Text("Show Success"),
+                ),
+                ElevatedButton(
+                  onPressed: _simulateWarning,
+                  child: const Text("Show Warning"),
+                ),
+                ElevatedButton(
+                  onPressed: _simulateFailure,
+                  child: const Text("Show Failure"),
+                ),
+                ElevatedButton(
+                  onPressed: _showSnackBar,
+                  child: const Text("Show Snackbar"),
+                ),
+              ],
+            ),
           ),
           Expanded(
             child: SmartRefreshIndicator(
