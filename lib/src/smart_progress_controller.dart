@@ -54,6 +54,15 @@ class SmartProgressController {
     _autoDismiss();
   }
 
+  /// Show an info animation and dismiss automatically.
+  void showInfo({required String message, Color? color}) {
+    show(
+        state: SmartProgressState.info,
+        message: message,
+        color: color ?? Colors.blue);
+    _autoDismiss();
+  }
+
   /// Show a warning animation and dismiss automatically.
   void showWarning({required String message, Color? color}) {
     show(
