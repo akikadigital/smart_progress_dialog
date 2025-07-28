@@ -144,6 +144,12 @@ lib/
 
 ![Load More Dialog](screenshots/load_more.png)
 
+### Snackbar
+
+- This dialog is shown when more data is being loaded in a list.
+
+![Snackbar](screenshots/snackbar.png)
+
 ---
 
 ## 📄 License
