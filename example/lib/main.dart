@@ -50,8 +50,7 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
     _controller.attach(context); // Attach the controller to the context
     _controller.showLoading("Loading..."); // Show loading state
     await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
-    _controller.showSuccess(
-        message: "Completed successfully!", delay: false); // Show success state
+    _controller.showSuccess(message: "Successful"); // Show success state
   }
 
   void _simulateWarning() async {
