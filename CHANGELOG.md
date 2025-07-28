@@ -5,3 +5,7 @@
 ## 0.0.2
 
 * Added loop and repeat options for progress dialog.
+
+## 0.0.3
+
+* Updates package for better performance and stability.
