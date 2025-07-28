@@ -12,6 +12,8 @@ class SmartProgressDialog extends StatefulWidget {
   final Color color;
   final Color backgroundColor;
   final String? message;
+  final bool? animateAsset;
+  final bool? loopAnimation;
 
   const SmartProgressDialog({
     Key? key,
@@ -20,6 +22,8 @@ class SmartProgressDialog extends StatefulWidget {
     this.color = Colors.teal,
     this.backgroundColor = Colors.white,
     this.message,
+    this.animateAsset = true,
+    this.loopAnimation = true,
   }) : super(key: key);
 
   @override
@@ -66,6 +70,8 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
           'assets/success_tick.json',
           width: widget.size,
           height: widget.size,
+          animate: widget.animateAsset ?? true,
+          repeat: widget.loopAnimation ?? true,
         );
         break;
       case SmartProgressState.failure:
@@ -73,6 +79,8 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
           'assets/failure_x.json',
           width: widget.size,
           height: widget.size,
+          animate: widget.animateAsset ?? true,
+          repeat: widget.loopAnimation ?? true,
         );
         break;
       case SmartProgressState.warning:
@@ -80,6 +88,8 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
           'assets/warning_alert.json',
           width: widget.size,
           height: widget.size,
+          animate: widget.animateAsset ?? true,
+          repeat: widget.loopAnimation ?? true,
         );
         break;
     }

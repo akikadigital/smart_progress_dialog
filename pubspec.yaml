@@ -27,6 +27,15 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/success_tick.json
-    - assets/failure_x.json
-    - assets/warning_alert.json
+    - assets/
+
+topics:
+  - flutter
+  - dialogs
+  - toastr
+  - animated
+  - animated_dialogs
+  - progress
+  - snackbar
+  - alerts
+  - feedback
