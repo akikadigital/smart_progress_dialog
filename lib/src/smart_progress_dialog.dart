@@ -47,11 +47,17 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
     switch (currentState) {
       case SmartProgressState.loading:
         content = SizedBox(
-          width: widget.size / 2,
-          height: widget.size / 2,
-          child: CircularProgressIndicator(
-            strokeWidth: 4,
-            valueColor: AlwaysStoppedAnimation<Color>(widget.color),
+          width: widget.size,
+          height: widget.size,
+          child: Column(
+            children: [
+              const SizedBox(height: 16),
+              CircularProgressIndicator(
+                strokeWidth: 4,
+                valueColor: AlwaysStoppedAnimation<Color>(widget.color),
+              ),
+              const SizedBox(height: 8),
+            ],
           ),
         );
         break;
