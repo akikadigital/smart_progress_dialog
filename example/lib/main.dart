@@ -1,0 +1,110 @@
+import 'package:flutter/material.dart';
+import 'package:smart_progress_dialog/smart_progress_dialog.dart';
+
+void main() {
+  runApp(const ExampleApp());
+}
+
+class ExampleApp extends StatelessWidget {
+  const ExampleApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Smart Progress Dialog Example',
+      home: ExampleHomePage(),
+    );
+  }
+}
+
+class ExampleHomePage extends StatefulWidget {
+  const ExampleHomePage({super.key});
+
+  @override
+  State<ExampleHomePage> createState() => _ExampleHomePageState();
+}
+
+class _ExampleHomePageState extends State<ExampleHomePage> {
+  final SmartProgressController _controller = SmartProgressController();
+  final List<String> _items = List.generate(20, (i) => 'Item ${i + 1}');
+  bool _isLoadingMore = false;
+
+  Future<void> _loadMore() async {
+    setState(() => _isLoadingMore = true);
+    await Future.delayed(const Duration(seconds: 2));
+    setState(() {
+      _items.addAll(List.generate(10, (i) => 'Item ${_items.length + i + 1}'));
+      _isLoadingMore = false;
+    });
+  }
+
+  Future<void> _refresh() async {
+    await Future.delayed(const Duration(seconds: 2));
+    setState(() {
+      _items.clear();
+      _items.addAll(List.generate(20, (i) => 'Item ${i + 1}'));
+    });
+  }
+
+  void _simulateSuccess() async {
+    _controller.attach(context);
+    _controller.showLoading("Loading...");
+    await Future.delayed(const Duration(seconds: 2));
+    _controller.showSuccess("Completed successfully!");
+  }
+
+  void _simulateFailure() async {
+    _controller.attach(context);
+    _controller.showLoading("Processing...");
+    await Future.delayed(const Duration(seconds: 2));
+    _controller.showFailure("Something went wrong.");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Smart Dialog Example')),
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: _simulateSuccess,
+                child: const Text("Show Success"),
+              ),
+              ElevatedButton(
+                onPressed: _simulateFailure,
+                child: const Text("Show Failure"),
+              ),
+            ],
+          ),
+          Expanded(
+            child: SmartRefreshIndicator(
+              onRefresh: _refresh,
+              child: NotificationListener<ScrollNotification>(
+                onNotification: (scrollInfo) {
+                  if (!_isLoadingMore &&
+                      scrollInfo.metrics.pixels ==
+                          scrollInfo.metrics.maxScrollExtent) {
+                    _loadMore();
+                  }
+                  return false;
+                },
+                child: ListView.builder(
+                  itemCount: _items.length + 1,
+                  itemBuilder: (context, index) {
+                    if (index == _items.length) {
+                      return SmartListLoader(isLoading: _isLoadingMore);
+                    }
+                    return ListTile(title: Text(_items[index]));
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

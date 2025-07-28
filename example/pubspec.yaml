@@ -1,0 +1,17 @@
+name: smart_progress_dialog_example
+description: Demonstrates the usage of the smart_progress_dialog package.
+publish_to: 'none'
+
+version: 1.0.0
+
+environment:
+  sdk: '>=2.17.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  smart_progress_dialog:
+    path: ../
+
+flutter:
+  uses-material-design: true
