@@ -54,7 +54,7 @@ class SmartProgressController {
     _autoDismiss();
   }
 
-  /// Show an info animation and dismiss automatically.
+  /// Show a success animation and dismiss automatically.
   void showInfo({required String message, Color? color}) {
     show(
         state: SmartProgressState.info,
@@ -75,7 +75,7 @@ class SmartProgressController {
   /// Show a failure animation and dismiss automatically.
   void showFailure({required String message, Color? color}) {
     show(
-        state: SmartProgressState.error,
+        state: SmartProgressState.failure,
         message: message,
         color: color ?? Colors.red);
     _autoDismiss();

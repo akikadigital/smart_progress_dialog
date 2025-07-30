@@ -1,5 +1,5 @@
 name: smart_progress_dialog_example
-description: Demonstrates the usage of the smart_progress_dialog package.
+description: Demonstrates the usage of the images package.
 publish_to: 'none'
 
 version: 1.0.0
@@ -15,6 +15,3 @@ dependencies:
 
 flutter:
   uses-material-design: true
-
-  assets:
-      - assets/

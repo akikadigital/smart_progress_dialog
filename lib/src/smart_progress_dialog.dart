@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smart_progress_dialog/util/dialog_assets.dart';
 
-import 'dialog_state.dart';
+import 'enums.dart';
 
 /// A customizable dialog widget to show loading, success, failure, or warning states.
 class SmartProgressDialog extends StatefulWidget {
@@ -13,8 +13,6 @@ class SmartProgressDialog extends StatefulWidget {
   final Color color;
   final Color backgroundColor;
   final String? message;
-  final bool? animateAsset;
-  final bool? loopAnimation;
 
   const SmartProgressDialog({
     Key? key,
@@ -23,8 +21,6 @@ class SmartProgressDialog extends StatefulWidget {
     this.color = Colors.teal,
     this.backgroundColor = Colors.white,
     this.message,
-    this.animateAsset = true,
-    this.loopAnimation = true,
   }) : super(key: key);
 
   @override
@@ -69,39 +65,38 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
       case SmartProgressState.success:
         content = Lottie.asset(
           DialogAssets.success,
+          package: DialogAssets.package,
           width: widget.size,
           height: widget.size,
-          animate: widget.animateAsset ?? true,
-          repeat: widget.loopAnimation ?? true,
         );
         break;
-      case SmartProgressState.error:
+      case SmartProgressState.failure:
         content = Lottie.asset(
           DialogAssets.error,
+          package: DialogAssets.package,
           width: widget.size,
           height: widget.size,
-          animate: widget.animateAsset ?? true,
-          repeat: widget.loopAnimation ?? true,
         );
         break;
       case SmartProgressState.warning:
         content = Lottie.asset(
           DialogAssets.warning,
+          package: DialogAssets.package,
           width: widget.size,
           height: widget.size,
-          animate: widget.animateAsset ?? true,
-          repeat: widget.loopAnimation ?? true,
         );
         break;
       case SmartProgressState.info:
+        // TODO: Handle this case.
         content = Lottie.asset(
           DialogAssets.info,
+          package: DialogAssets.package,
           width: widget.size,
           height: widget.size,
-          animate: widget.animateAsset ?? true,
-          repeat: widget.loopAnimation ?? true,
         );
         break;
+      default:
+        content = SizedBox.shrink();
     }
 
     return Dialog(

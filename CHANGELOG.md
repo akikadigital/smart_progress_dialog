@@ -9,3 +9,8 @@
 ## 0.0.3
 
 * Updates package for better performance and stability.
+
+## 0.0.4
+
+* Updates snack bar
+* Removes asset dependency

@@ -77,20 +77,23 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
   }
 
   void _showSnackBar() {
-    SmartSnackBar.show(
-      context,
-      "This is a snackbar message",
-      state: SmartProgressState.warning,
-      duration: const Duration(seconds: 3),
-      backgroundColor: Colors.red,
-    );
-    SmartSnackBar.show(
-      context,
-      "This is a snackbar message",
-      state: SmartProgressState.warning,
-      duration: const Duration(seconds: 3),
-      backgroundColor: Colors.green,
-    );
+    SmartSnackBar.show(context, "This is a snack bar message",
+        type: SmartSnackBarType.warning,
+        duration: SmartSnackBarDuration.short,
+        position: SmartSnackBarPosition.top,
+        backgroundColor: Colors.red,
+        showIcon: false);
+    SmartSnackBar.show(context, "This is a snack bar message",
+        title: 'Some title',
+        type: SmartSnackBarType.success,
+        duration: SmartSnackBarDuration.indefinite,
+        position: SmartSnackBarPosition.bottom,
+        showIcon: true,
+        showCloseIcon: true, onClose: () {
+      SmartSnackBar.show(context, "Snack bar closed",
+          type: SmartSnackBarType.info, duration: SmartSnackBarDuration.short);
+      return null;
+    });
   }
 
   @override
