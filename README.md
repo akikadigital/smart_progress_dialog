@@ -31,6 +31,24 @@ import 'package:images/images.dart';
 
 ---
 
+## ✅ Tests
+
+Smart Dialogs Plus includes complete widget and unit tests for the following:
+
+- SmartProgressController
+- SmartListLoader
+- SmartProgressDialog
+- SmartRefreshIndicator
+- SmartSnackBar
+
+To run tests:
+
+```bash
+flutter test
+```
+
+---
+
 ## 🧠 Usage
 
 ### 1. Dialog With Controller
@@ -76,11 +94,25 @@ SmartRefreshIndicator(
 
 ```dart
 SmartSnackBar.show(
-  context,
-  "Item saved!",
-  state: SmartProgressState.success,
-  position: SnackBarPosition.top, // or SnackBarPosition.bottom
-  backgroundColor: Colors.indigo,
+    context, message, {
+    title: "Hello Title!",
+    type: SmartSnackBarType.success,
+    duration: SmartSnackBarDuration.short, // Duration of the snack bar: short, long, or indefinite
+    backgroundColor: Colors.green, // Custom background color
+    position: SmartSnackBarPosition.top, // Position of the snack bar: top or bottom
+    showIcon: true, // Show icon based on type
+    customIcon: Icons.check_circle, // Custom icon if showIcon is true
+    showCloseIcon: false, // Show close icon
+    closeIconColor: Colors.white, // Color of the close icon
+    onClose: () { // Optional callback when snack bar is closed
+      // Handle close
+    },
+    action: SnackBarAction( // Optional action button
+    label: "Undo",
+    onPressed: () {
+      // Handle action
+    },
+    ),
 );
 ```
 
@@ -119,3 +151,11 @@ lib/
 ## 📄 License
 
 MIT License © 2025 Akika Digital
+
+---
+
+## 💡 Contributing
+
+Got ideas for more widgets or improvements? Submit an issue or pull request on GitHub. Let’s make feedback in Flutter apps smarter — together!
+
+---

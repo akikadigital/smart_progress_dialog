@@ -14,3 +14,7 @@
 
 * Updates snack bar
 * Removes asset dependency
+
+## 0.0.5
+
+* Updates test scripts

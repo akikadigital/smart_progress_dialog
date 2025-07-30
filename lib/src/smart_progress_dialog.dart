@@ -13,6 +13,7 @@ class SmartProgressDialog extends StatefulWidget {
   final Color color;
   final Color backgroundColor;
   final String? message;
+  final bool autoDismiss;
 
   const SmartProgressDialog({
     Key? key,
@@ -21,6 +22,7 @@ class SmartProgressDialog extends StatefulWidget {
     this.color = Colors.teal,
     this.backgroundColor = Colors.white,
     this.message,
+    this.autoDismiss = true,
   }) : super(key: key);
 
   @override
@@ -35,7 +37,7 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
     super.initState();
     currentState = widget.state;
 
-    if (currentState != SmartProgressState.loading) {
+    if (widget.autoDismiss && currentState != SmartProgressState.loading) {
       Timer(const Duration(seconds: 3), () {
         if (mounted) Navigator.of(context, rootNavigator: true).pop();
       });
@@ -96,7 +98,7 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
         );
         break;
       default:
-        content = SizedBox.shrink();
+        content = const SizedBox.shrink();
     }
 
     return Dialog(

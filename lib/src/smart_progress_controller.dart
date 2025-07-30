@@ -17,16 +17,15 @@ class SmartProgressController {
 
   /// Show a custom dialog with the given parameters.
   void show({
-    SmartProgressState state =
-        SmartProgressState.loading, // Default state is loading
-    String? message, // Message to display in the dialog
-    double size = 80, // Default size of the dialog
-    Color color = Colors.teal, // Default color for the dialog
-    Color backgroundColor = Colors.white, // Default background color
+    SmartProgressState state = SmartProgressState.loading,
+    String? message,
+    double size = 80,
+    Color color = Colors.teal,
+    Color backgroundColor = Colors.white,
+    bool autoDismiss = true, // <--- New
   }) {
     if (_context == null) return;
 
-    /// Show the dialog using the provided context and parameters.
     showDialog(
       context: _context!,
       barrierDismissible: false,
@@ -36,6 +35,7 @@ class SmartProgressController {
         size: size,
         color: color,
         backgroundColor: backgroundColor,
+        autoDismiss: autoDismiss, // <-- pass it
       ),
     );
   }
@@ -46,39 +46,63 @@ class SmartProgressController {
   }
 
   /// Show a success animation and dismiss automatically.
-  void showSuccess({required String message, Color? color}) {
+  void showSuccess({
+    required String message,
+    Color? color,
+    bool autoDismiss = true,
+  }) {
     show(
-        state: SmartProgressState.success,
-        message: message,
-        color: color ?? Colors.green);
-    _autoDismiss();
+      state: SmartProgressState.success,
+      message: message,
+      color: color ?? Colors.green,
+      autoDismiss: autoDismiss,
+    );
+    if (autoDismiss) _autoDismiss();
   }
 
   /// Show a success animation and dismiss automatically.
-  void showInfo({required String message, Color? color}) {
+  void showInfo({
+    required String message,
+    Color? color,
+    bool autoDismiss = true,
+  }) {
     show(
-        state: SmartProgressState.info,
-        message: message,
-        color: color ?? Colors.blue);
-    _autoDismiss();
+      state: SmartProgressState.info,
+      message: message,
+      color: color ?? Colors.blue,
+      autoDismiss: autoDismiss,
+    );
+    if (autoDismiss) _autoDismiss();
   }
 
   /// Show a warning animation and dismiss automatically.
-  void showWarning({required String message, Color? color}) {
+  void showWarning({
+    required String message,
+    Color? color,
+    bool autoDismiss = true,
+  }) {
     show(
-        state: SmartProgressState.warning,
-        message: message,
-        color: color ?? Colors.orange);
-    _autoDismiss();
+      state: SmartProgressState.warning,
+      message: message,
+      color: color ?? Colors.orange,
+      autoDismiss: autoDismiss,
+    );
+    if (autoDismiss) _autoDismiss();
   }
 
   /// Show a failure animation and dismiss automatically.
-  void showFailure({required String message, Color? color}) {
+  void showFailure({
+    required String message,
+    Color? color,
+    bool autoDismiss = true,
+  }) {
     show(
-        state: SmartProgressState.failure,
-        message: message,
-        color: color ?? Colors.red);
-    _autoDismiss();
+      state: SmartProgressState.failure,
+      message: message,
+      color: color ?? Colors.red,
+      autoDismiss: autoDismiss,
+    );
+    if (autoDismiss) _autoDismiss();
   }
 
   /// Manually dismiss the dialog.
