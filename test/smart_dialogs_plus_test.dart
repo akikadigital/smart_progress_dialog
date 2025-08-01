@@ -43,7 +43,7 @@ void main() {
                 body: Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      controller.showSuccess(message: "Success!");
+                      controller.showSuccess(text: "Success!");
                     },
                     child: const Text('Show'),
                   ),

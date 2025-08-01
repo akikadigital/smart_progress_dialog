@@ -6,30 +6,91 @@ import 'package:smart_progress_dialog/util/dialog_assets.dart';
 
 import 'enums.dart';
 
+class SmartProgressDialog {
+  /// Show a loading dialog with optional text.
+  static void startProgressDialog(
+    BuildContext context, {
+    color = Colors.teal,
+    String? text,
+  }) {
+    if (Navigator.canPop(context)) {
+      Navigator.pop(context);
+    }
+    showSmartDialog(
+      context,
+      state: SmartProgressState.loading,
+      text: text,
+      autoDismiss: false,
+    );
+  }
+
+  /// Stop the progress dialog and show a success, error, or warning state.
+  static void stopProgressDialog(
+    BuildContext context,
+    SmartProgressState state, {
+    String? text,
+  }) {
+    if (Navigator.canPop(context)) {
+      Navigator.pop(context);
+    }
+    showSmartDialog(
+      context,
+      state: state,
+      text: text,
+      autoDismiss: true,
+    );
+  }
+
+  /// Show a dialog with the specified state and optional text.
+  static void showSmartDialog(
+    BuildContext context, {
+    SmartProgressState state = SmartProgressState.loading,
+    Color color = Colors.teal,
+    Color backgroundColor = Colors.white,
+    String? text,
+    bool autoDismiss = true,
+  }) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return SmartProgressDialogWidget(
+          state: state,
+          color: color,
+          backgroundColor: backgroundColor,
+          text: text,
+          autoDismiss: autoDismiss,
+        );
+      },
+    );
+  }
+}
+
 /// A customizable dialog widget to show loading, success, failure, or warning states.
-class SmartProgressDialog extends StatefulWidget {
+class SmartProgressDialogWidget extends StatefulWidget {
   final SmartProgressState state;
   final double size;
   final Color color;
   final Color backgroundColor;
-  final String? message;
+  final String? text;
   final bool autoDismiss;
 
-  const SmartProgressDialog({
+  const SmartProgressDialogWidget({
     Key? key,
     this.state = SmartProgressState.loading,
     this.size = 80.0,
     this.color = Colors.teal,
     this.backgroundColor = Colors.white,
-    this.message,
+    this.text,
     this.autoDismiss = true,
   }) : super(key: key);
 
   @override
-  State<SmartProgressDialog> createState() => _SmartProgressDialogState();
+  State<SmartProgressDialogWidget> createState() =>
+      _SmartProgressDialogWidgetState();
 }
 
-class _SmartProgressDialogState extends State<SmartProgressDialog> {
+class _SmartProgressDialogWidgetState extends State<SmartProgressDialogWidget> {
   late SmartProgressState currentState;
 
   @override
@@ -47,8 +108,10 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
   @override
   Widget build(BuildContext context) {
     Widget content;
+    Color? textColor;
     switch (currentState) {
       case SmartProgressState.loading:
+        textColor = widget.color;
         content = SizedBox(
           width: widget.size,
           height: widget.size,
@@ -65,6 +128,7 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
         );
         break;
       case SmartProgressState.success:
+        textColor = Colors.green;
         content = Lottie.asset(
           DialogAssets.success,
           package: DialogAssets.package,
@@ -72,7 +136,8 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
           height: widget.size,
         );
         break;
-      case SmartProgressState.failure:
+      case SmartProgressState.error:
+        textColor = Colors.red;
         content = Lottie.asset(
           DialogAssets.error,
           package: DialogAssets.package,
@@ -81,6 +146,7 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
         );
         break;
       case SmartProgressState.warning:
+        textColor = Colors.orange;
         content = Lottie.asset(
           DialogAssets.warning,
           package: DialogAssets.package,
@@ -89,6 +155,7 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
         );
         break;
       case SmartProgressState.info:
+        textColor = Colors.blue;
         // TODO: Handle this case.
         content = Lottie.asset(
           DialogAssets.info,
@@ -98,6 +165,7 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
         );
         break;
       default:
+        textColor = widget.color;
         content = const SizedBox.shrink();
     }
 
@@ -110,11 +178,11 @@ class _SmartProgressDialogState extends State<SmartProgressDialog> {
           mainAxisSize: MainAxisSize.min,
           children: [
             content,
-            if (widget.message != null && widget.message!.isNotEmpty) ...[
+            if (widget.text != null && widget.text!.isNotEmpty) ...[
               const SizedBox(height: 16),
               Text(
-                widget.message!,
-                style: TextStyle(color: widget.color, fontSize: 14),
+                widget.text!,
+                style: TextStyle(color: textColor, fontSize: 14),
                 textAlign: TextAlign.center,
               ),
             ]

@@ -18,7 +18,7 @@ class SmartProgressController {
   /// Show a custom dialog with the given parameters.
   void show({
     SmartProgressState state = SmartProgressState.loading,
-    String? message,
+    String? text,
     double size = 80,
     Color color = Colors.teal,
     Color backgroundColor = Colors.white,
@@ -29,9 +29,9 @@ class SmartProgressController {
     showDialog(
       context: _context!,
       barrierDismissible: false,
-      builder: (_) => SmartProgressDialog(
+      builder: (_) => SmartProgressDialogWidget(
         state: state,
-        message: message,
+        text: text,
         size: size,
         color: color,
         backgroundColor: backgroundColor,
@@ -41,19 +41,19 @@ class SmartProgressController {
   }
 
   /// Show a loading spinner.
-  void showLoading([String? message]) {
-    show(state: SmartProgressState.loading, message: message);
+  void showLoading([String? text]) {
+    show(state: SmartProgressState.loading, text: text);
   }
 
   /// Show a success animation and dismiss automatically.
   void showSuccess({
-    required String message,
+    required String text,
     Color? color,
     bool autoDismiss = true,
   }) {
     show(
       state: SmartProgressState.success,
-      message: message,
+      text: text,
       color: color ?? Colors.green,
       autoDismiss: autoDismiss,
     );
@@ -62,13 +62,13 @@ class SmartProgressController {
 
   /// Show a success animation and dismiss automatically.
   void showInfo({
-    required String message,
+    required String text,
     Color? color,
     bool autoDismiss = true,
   }) {
     show(
       state: SmartProgressState.info,
-      message: message,
+      text: text,
       color: color ?? Colors.blue,
       autoDismiss: autoDismiss,
     );
@@ -77,13 +77,13 @@ class SmartProgressController {
 
   /// Show a warning animation and dismiss automatically.
   void showWarning({
-    required String message,
+    required String text,
     Color? color,
     bool autoDismiss = true,
   }) {
     show(
       state: SmartProgressState.warning,
-      message: message,
+      text: text,
       color: color ?? Colors.orange,
       autoDismiss: autoDismiss,
     );
@@ -92,13 +92,13 @@ class SmartProgressController {
 
   /// Show a failure animation and dismiss automatically.
   void showFailure({
-    required String message,
+    required String text,
     Color? color,
     bool autoDismiss = true,
   }) {
     show(
-      state: SmartProgressState.failure,
-      message: message,
+      state: SmartProgressState.error,
+      text: text,
       color: color ?? Colors.red,
       autoDismiss: autoDismiss,
     );

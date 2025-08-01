@@ -18,3 +18,7 @@
 ## 0.0.5
 
 * Updates test scripts
+
+## 0.0.8
+
+* Simplifies snack bar usage

@@ -51,28 +51,29 @@ flutter test
 
 ## 🧠 Usage
 
-### 1. Dialog With Controller
+### 1. Show Loading Progress Dialog
 
 ```dart
-final controller = SmartProgressController();
-controller.attach(context);
 
-controller.showLoading("Loading...");
-await Future.delayed(Duration(seconds: 2));
-controller.showSuccess("Done!");
+SmartProgressDialog.startProgressDialog(
+  context, // BuildContext
+  color: Colors.black87, // Color of the progress dialog
+  text: "Loading...", // Text to display in the dialog
+);
 ```
 
-### 2. Inline Dialog Usage
+---
+
+### 2. Stop Progress Dialog
 
 ```dart
-showDialog(
-  context: context,
-  builder: (_) => SmartProgressDialog(
-    state: SmartProgressState.warning,
-    message: "Be careful!",
-    color: Colors.orange,
-  ),
+
+SmartProgressDialog.stopProgressDialog(
+  context, // BuildContext
+  SmartProgressState.success, // State of the dialog (success, error, warning)
+  text: "Successful", // Text to display in the dialog
 );
+
 ```
 
 ### 3. Infinite Scroll List Loader
@@ -90,7 +91,7 @@ SmartRefreshIndicator(
 )
 ```
 
-### 5. Show Snackbar
+### 5. Show Snack bar
 
 ```dart
 SmartSnackBar.show(

@@ -13,7 +13,7 @@ void main() {
     await tester.pumpWidget(TestApp(controller));
 
     // Show a dialog without auto-dismiss to avoid pending timers
-    controller.showInfo(message: 'Info', autoDismiss: false);
+    controller.showInfo(text: 'Info', autoDismiss: false);
 
     // Wait for the dialog to render
     await tester.pump();

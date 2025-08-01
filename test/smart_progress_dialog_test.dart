@@ -12,9 +12,9 @@ void main() {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
-          body: SmartProgressDialog(
+          body: SmartProgressDialogWidget(
             state: SmartProgressState.loading,
-            message: 'Loading...',
+            text: 'Loading...',
           ),
         ),
       ),
@@ -29,9 +29,9 @@ void main() {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
-          body: SmartProgressDialog(
+          body: SmartProgressDialogWidget(
             state: SmartProgressState.success,
-            message: 'Success!',
+            text: 'Success!',
           ),
         ),
       ),
@@ -49,9 +49,9 @@ void main() {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
-          body: SmartProgressDialog(
+          body: SmartProgressDialogWidget(
             state: SmartProgressState.warning,
-            message: 'Warning!',
+            text: 'Warning!',
           ),
         ),
       ),
@@ -67,9 +67,9 @@ void main() {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
-          body: SmartProgressDialog(
-            state: SmartProgressState.failure,
-            message: 'Error!',
+          body: SmartProgressDialogWidget(
+            state: SmartProgressState.error,
+            text: 'Error!',
           ),
         ),
       ),

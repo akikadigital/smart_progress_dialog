@@ -25,7 +25,6 @@ class ExampleHomePage extends StatefulWidget {
 }
 
 class _ExampleHomePageState extends State<ExampleHomePage> {
-  final SmartProgressController _controller = SmartProgressController();
   final List<String> _items = List.generate(20, (i) => 'Item ${i + 1}');
   bool _isLoadingMore = false;
 
@@ -47,33 +46,44 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
   }
 
   void _simulateSuccess() async {
-    _controller.attach(context); // Attach the controller to the context
-    _controller.showLoading("Loading..."); // Show loading state
+    SmartProgressDialog.startProgressDialog(context,
+        color: Colors.black87, text: "Loading...");
     await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
-    _controller.showSuccess(message: "Successful"); // Show success state
+    SmartProgressDialog.stopProgressDialog(
+      context,
+      SmartProgressState.success,
+      text: "Successful",
+    ); // Show success state
   }
 
   void _simulateInfo() async {
-    _controller.attach(context); // Attach the controller to the context
-    _controller.showLoading("Loading..."); // Show loading state
+    SmartProgressDialog.startProgressDialog(context, text: "Processing...");
     await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
-    _controller.showInfo(message: "This is an info!"); // Show success state
+    SmartProgressDialog.stopProgressDialog(
+      context,
+      SmartProgressState.info,
+      text: "This is an Info!",
+    ); // Show info state
   }
 
   void _simulateWarning() async {
-    _controller.attach(context); // Attach the controller to the context
-    _controller.showLoading("Processing..."); // Show loading state
+    SmartProgressDialog.startProgressDialog(context, text: "Processing...");
     await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
-    _controller.showWarning(
-        message: "This is a warning!"); // Show warning state
+    SmartProgressDialog.stopProgressDialog(
+      context,
+      SmartProgressState.warning,
+      text: "This is a warning!",
+    ); // Show info state
   }
 
-  void _simulateFailure() async {
-    _controller.attach(context); // Attach the controller to the context
-    _controller.showLoading("Processing..."); // Show loading state
+  void _simulateError() async {
+    SmartProgressDialog.startProgressDialog(context, text: "Processing...");
     await Future.delayed(const Duration(seconds: 2)); // Simulate a delay
-    _controller.showFailure(
-        message: "Something went wrong."); // Show failure state
+    SmartProgressDialog.stopProgressDialog(
+      context,
+      SmartProgressState.error,
+      text: "There was an Error!",
+    ); // Show info state
   }
 
   void _showSnackBar() {
@@ -121,12 +131,12 @@ class _ExampleHomePageState extends State<ExampleHomePage> {
                   child: const Text("Show Warning"),
                 ),
                 ElevatedButton(
-                  onPressed: _simulateFailure,
+                  onPressed: _simulateError,
                   child: const Text("Show Failure"),
                 ),
                 ElevatedButton(
                   onPressed: _showSnackBar,
-                  child: const Text("Show Snackbar"),
+                  child: const Text("Show Snack bar"),
                 ),
               ],
             ),
