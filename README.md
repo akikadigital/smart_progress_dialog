@@ -51,7 +51,7 @@ flutter test
 
 ## 🧠 Usage
 
-### 1. Show Loading Progress Dialog
+### 1. Show Smart Loading Progress Dialog
 
 ```dart
 
@@ -64,7 +64,7 @@ SmartProgressDialog.startProgressDialog(
 
 ---
 
-### 2. Stop Progress Dialog
+### 2. Stop Smart Progress Dialog
 
 ```dart
 
@@ -76,13 +76,13 @@ SmartProgressDialog.stopProgressDialog(
 
 ```
 
-### 3. Infinite Scroll List Loader
+### 3. Show Smart Infinite Scroll List Loader
 
 ```dart
 SmartListLoader(isLoading: isLoadingMore)
 ```
 
-### 4. Pull to Refresh
+### 4. Show Smart Pull to Refresh
 
 ```dart
 SmartRefreshIndicator(
@@ -91,7 +91,7 @@ SmartRefreshIndicator(
 )
 ```
 
-### 5. Show Snack bar
+### 5. Show Smart Snack bar
 
 ```dart
 SmartSnackBar.show(
@@ -148,6 +148,10 @@ lib/
 | Load More | ![](screenshots/load_more.png) |
 
 ---
+
+## Additional Resources
+
+- If want a more robust smart dialog, please check out [Smart Dialogs Plus](https://pub.dev/packages/smart_dialogs_plus) which is a more advanced version of this package with additional features and improvements.
 
 ## 📄 License
 
