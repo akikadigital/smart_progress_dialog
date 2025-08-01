@@ -19,6 +19,6 @@
 
 * Updates test scripts
 
-## 0.0.8
+## 0.0.6
 
 * Simplifies snack bar usage
