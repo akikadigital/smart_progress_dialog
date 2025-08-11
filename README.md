@@ -21,7 +21,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  smart_progress_dialog: ^0.0.6
+  smart_progress_dialog: ^0.0.7
 ```
 
 Import it:
