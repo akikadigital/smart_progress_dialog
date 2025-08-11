@@ -70,7 +70,7 @@ SmartProgressDialog.startProgressDialog(
 
 SmartProgressDialog.stopProgressDialog(
   context, // BuildContext
-  SmartProgressState.success, // State of the dialog (success, error, warning)
+  state: SmartProgressState.success, // State of the dialog (success, error, warning)
   text: "Successful", // Text to display in the dialog
 );
 

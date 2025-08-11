@@ -8,7 +8,7 @@ import 'enums.dart';
 
 class SmartProgressDialog {
   /// Show a loading dialog with optional text.
-  static void startProgressDialog(
+  static void showProgressDialog(
     BuildContext context, {
     color = Colors.teal,
     String? text,
@@ -16,7 +16,7 @@ class SmartProgressDialog {
     if (Navigator.canPop(context)) {
       Navigator.pop(context);
     }
-    showSmartDialog(
+    _createSmartProgressDialogWidget(
       context,
       state: SmartProgressState.loading,
       text: text,
@@ -25,24 +25,27 @@ class SmartProgressDialog {
   }
 
   /// Stop the progress dialog and show a success, error, or warning state.
-  static void stopProgressDialog(
-    BuildContext context,
-    SmartProgressState state, {
+  static void dismissProgressDialog(
+    BuildContext context, {
+    SmartProgressState? state,
     String? text,
   }) {
     if (Navigator.canPop(context)) {
       Navigator.pop(context);
     }
-    showSmartDialog(
-      context,
-      state: state,
-      text: text,
-      autoDismiss: true,
-    );
+
+    if (text != null || state != null) {
+      _createSmartProgressDialogWidget(
+        context,
+        state: state ?? SmartProgressState.success,
+        text: text,
+        autoDismiss: true,
+      );
+    }
   }
 
   /// Show a dialog with the specified state and optional text.
-  static void showSmartDialog(
+  static void _createSmartProgressDialogWidget(
     BuildContext context, {
     SmartProgressState state = SmartProgressState.loading,
     Color color = Colors.teal,

@@ -22,3 +22,7 @@
 ## 0.0.6
 
 * Simplifies snack bar usage
+
+## 0.0.7
+
+*  Updates dismissing progress dialog
