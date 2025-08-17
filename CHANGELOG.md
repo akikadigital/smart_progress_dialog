@@ -26,3 +26,7 @@
 ## 0.0.7
 
 *  Updates dismissing progress dialog
+
+## 0.0.8
+
+* Removes unnecessary pop over dismiss in progress dialog

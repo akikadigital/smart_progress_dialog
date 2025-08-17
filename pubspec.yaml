@@ -2,7 +2,7 @@ name: smart_progress_dialog
 
 description: "A Flutter package for showing customizable animated dialogs, alerts, snackbars, and loaders with Lottie support."
 
-version: 0.0.7
+version: 0.0.8
 
 homepage: https://github.com/akikadigital/smart_progress_dialog
 repository: https://github.com/akikadigital/smart_progress_dialog

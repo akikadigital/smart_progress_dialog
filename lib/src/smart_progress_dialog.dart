@@ -13,9 +13,6 @@ class SmartProgressDialog {
     color = Colors.teal,
     String? text,
   }) {
-    if (Navigator.canPop(context)) {
-      Navigator.pop(context);
-    }
     _createSmartProgressDialogWidget(
       context,
       state: SmartProgressState.loading,
@@ -30,6 +27,7 @@ class SmartProgressDialog {
     SmartProgressState? state,
     String? text,
   }) {
+    // If no state or text is provided, just close the dialog
     if (Navigator.canPop(context)) {
       Navigator.pop(context);
     }
